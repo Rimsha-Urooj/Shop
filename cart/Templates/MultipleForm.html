@@ -1,0 +1,17 @@
+<html>
+{% block content %}
+<form action="" method="POST">
+
+    {% csrf_token %}
+    <h2>Product</h2>
+    {{ pform }}
+    <br>
+    <h2>Order</h2>
+    {{ oform }}
+    <br>
+    <input type="submit" name="Submit">
+</form>
+
+{% endblock content %}
+
+</html>

@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Django Ajax CRUD{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Django Ajax CRUD</h1>
+    <div class="row" id="output">
+      <div class="col-md-4 ">
+        <h3>ADD Product</h3>
+        <form id="addProduct" action="">
+          <div class="form-group">
+              <label>Name</label>
+            <input class="form-control" type="text" name="name" placeholder="Name" required>
+          </div>
+          <div class="form-group">
+              <label>Price</label>
+            <input class="form-control" type="number" name="price" placeholder="Price" required>
+          </div>
+          <div class="form-group">
+              <label>Quantity</label>
+            <input class="form-control" type="number" name="quantity" placeholder="Quantity" required>
+          </div>
+          <div class="form-group">
+              <label>Status</label>
+            <input class="form-control" type="checkbox" name="status" placeholder="Status" required>
+          </div>
+
+            <br><br>
+          <button class="btn btn-primary form-control" type="submit">SUBMIT</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+{% endblock %}
+
+
+{% block javascript %}
+<script>
+$('#addProduct').on('submit', function(e){
+
+e.preventDefault();
+
+  $.ajax({
+       type : "POST",
+       url: "{% url 'ajax_posting' %}",
+       data: {
+        name : $('#name').val(),
+        price : $('#price').val(),
+        quantity : $('#quantity').val(),
+        status : $('#status').val(),
+        csrfmiddlewaretoken: '{{ csrf_token }}',
+        dataType: "json",
+
+       },
+
+       success: function(data){
+          $('#output').html(data.msg) /* response message */
+       },
+
+       failure: function() {
+
+       }
+
+
+   });
+
+
+        });
+
+</script>
+{% endblock javascript %}
+

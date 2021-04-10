@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+</head>
+{% block content%}
+<body>
+    <h1>Welcome</h1>
+    {% if messsages %}
+    {% for message in messages %}
+    <p>{{ message }}</p>
+    {% endfor %}
+    {% endif %}
+    <div>
+        <table>
+            <tr>
+                <th>Prodcut  </th>
+                <th>  Price  </th>
+                <th>  Quantity  </th>
+                <th>  Status  </th>
+            </tr>
+            {% for p in product %}
+                <tr>
+                    <td>{{p.name}}</td>
+                    <td>{{p.price}}</td>
+                    <td>{{p.quantity}}</td>
+                    <td>{{p.status}}</td>
+                    <td><a class ="btn btn-sm btn-info" href="{% url 'update' p.id %}">Update</a> </td>
+                    <td><a class ="btn btn-sm btn-danger" href="">Delete</a> </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+{% endblock content %}
+</html>
