@@ -1,7 +1,12 @@
 {% block content %}
 <html>
 <h1>Orders</h1>
+<form action="" method="POST">
 
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" name="Submit">
+</form>
 
 </html>
 {% endblock content %}

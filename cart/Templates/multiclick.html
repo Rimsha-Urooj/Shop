@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="row" id="form" >
+        <h3>ADD Order Item</h3>
+        <form id="addOrder" action="">
+          <div class="form-group">
+              <label>Product</label>
+            <input class="form-control" type="text" name="product" placeholder="Product" required>
+          </div>
+          <div class="form-group">
+              <label>Order</label>
+            <input class="form-control" type="number" name="order" placeholder="Order" required>
+          </div>
+          <div class="form-group">
+              <label>Sub-Total</label>
+            <input class="form-control" type="number" name="subtotal" placeholder="Sub Total" required>
+          </div>
+          <div class="form-group">
+              <label>Quantity</label>
+            <input class="form-control" type="number" name="quantity" placeholder="Quantity" required>
+          </div>
+<!--            <input type="button" value="Add More" onclick="showForm()">-->
+
+          <button class="btn btn-primary form-control"  id="save"> SUBMIT</button>
+            <div id="myLocation"></div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+{% endblock %}
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    console.log("in script")
+    $(document).getElementById ("save").addEventListener ("click", showForm(), false);
+
+        function showForm(){
+            var form = "Product:<input type='text' name='product'>Order:<input type='number' name='order'>Sub-Total:<input type='number' name='subtotal'>Quantity:<input type='number' name='quantity'>";
+            document.getElementById("myLocation").append(form);
+        }
+</script>
+
+

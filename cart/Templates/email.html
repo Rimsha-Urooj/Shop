@@ -1,0 +1,31 @@
+<html>
+{% block content %}
+<body>
+<h2>Hey {{name }} !</h2>
+<p>Your Order has been placed</p>
+<h2>Order Details </h2>
+<div>
+        <table>
+            <tr>
+                <th>Total Quantity</th>
+                <th>Grand Total  </th>
+                <th>Total Discount </th>
+                <th> Status</th>
+                <th> Product </th>
+            </tr>
+                <tr>
+                    <td>{{form.total_quantity}}</td>
+                    <td>{{form.grand_total}}</td>
+                    <td>{{form.total_discount}}</td>
+                    <td>{{form.status}}</td>
+                    <td>{{form.product}}</td>
+                </tr>
+        </table>
+    </div>
+<p> Thanks for placing the order. For suggestion and complaint call at 937493230229283</p>
+</body>
+
+
+{% endblock content %}
+
+</html>

@@ -3,27 +3,11 @@ from django.db import models
 
 # Create your models here.
 class Product(models.Model):
-    Audio = 'AUDIO',
-    Vedio = 'VEDIO',
-    unknown = 'UNKNOWN',
-    MEDIA_CHOICES = [
-        ('Audio', (
-            ('vinyl', 'Vinyl'),
-            ('cd', 'CD'),
-        )
-         ),
-        ('Video', (
-            ('vhs', 'VHS Tape'),
-            ('dvd', 'DVD'),
-        )
-         ),
-        ('unknown', 'Unknown'),
-    ]
     name = models.CharField(max_length=100)
     price = models.IntegerField()
     quantity = models.IntegerField()
     status = models.BooleanField()
-    movie = models.CharField(max_length=10, choices=MEDIA_CHOICES, default=Audio)
+
     productImg = models.ImageField(null= True, blank=True)
 
     def __str__(self):
